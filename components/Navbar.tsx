@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,38 +19,78 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur border-b border-white/10" : "bg-transparent"
+        scrolled
+          ? "border-b border-white/10 bg-slate-950/80 backdrop-blur-2xl"
+          : "bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 py-4 text-white">
+      <nav className="mx-auto max-w-6xl px-6 py-4 text-white">
         <div className="flex items-center justify-between">
-          <h1 className="text-lg font-bold">Yenula Nimneth</h1>
+          <a href="#home" className="flex flex-col">
+            <span className="text-lg font-semibold tracking-tight">
+              Yenula Nimneth
+            </span>
+            <span className="text-xs uppercase tracking-[0.22em] text-slate-400">
+              Developer Portfolio
+            </span>
+          </a>
 
-          <div className="hidden md:flex gap-6 text-sm items-center">
-            <a href="#about" className="hover:text-gray-300">About</a>
-            <a href="#education" className="hover:text-gray-300">Education</a>
-            <a href="#skills" className="hover:text-gray-300">Skills</a>
-            <a href="#projects" className="hover:text-gray-300">Projects</a>
-            <a href="#milestones" className="hover:text-gray-300">Milestones</a>
-            <a href="#contact" className="hover:text-gray-300">Contact</a>
+          <div className="hidden items-center gap-6 text-sm md:flex">
+            <a href="#about" className="text-slate-300 transition hover:text-white">
+              About
+            </a>
+            <a href="#value" className="text-slate-300 transition hover:text-white">
+              Value
+            </a>
+            <a href="#skills" className="text-slate-300 transition hover:text-white">
+              Skills
+            </a>
+            <a href="#projects" className="text-slate-300 transition hover:text-white">
+              Projects
+            </a>
+            <a href="#milestones" className="text-slate-300 transition hover:text-white">
+              Journey
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-400/10 px-4 py-2 text-cyan-100 transition hover:bg-cyan-400/20"
+            >
+              Contact
+              <ArrowUpRight size={14} />
+            </a>
           </div>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden border border-white/20 px-3 py-1 rounded-lg"
+            className="rounded-lg border border-white/20 px-3 py-1 md:hidden"
           >
             Menu
           </button>
         </div>
 
         {menuOpen && (
-          <div className="md:hidden mt-4 flex flex-col gap-4 text-sm bg-white/5 border border-white/10 rounded-xl p-4">
-            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#education" onClick={() => setMenuOpen(false)}>Education</a>
-            <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
-            <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-            <a href="#milestones" onClick={() => setMenuOpen(false)}>Milestones</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+          <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-white/10 bg-slate-900/80 p-4 text-sm md:hidden">
+            <a href="#about" onClick={() => setMenuOpen(false)}>
+              About
+            </a>
+            <a href="#value" onClick={() => setMenuOpen(false)}>
+              Value
+            </a>
+            <a href="#education" onClick={() => setMenuOpen(false)}>
+              Education
+            </a>
+            <a href="#skills" onClick={() => setMenuOpen(false)}>
+              Skills
+            </a>
+            <a href="#projects" onClick={() => setMenuOpen(false)}>
+              Projects
+            </a>
+            <a href="#milestones" onClick={() => setMenuOpen(false)}>
+              Journey
+            </a>
+            <a href="#contact" onClick={() => setMenuOpen(false)}>
+              Contact
+            </a>
           </div>
         )}
       </nav>
