@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SectionReveal from "../SectionReveal";
 import { ArrowUpRight, Bot, Download, GitBranch } from "lucide-react";
 
@@ -16,7 +19,14 @@ export default function Contact() {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-[32px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ y: -6 }}
+              className="rounded-[32px] border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl"
+            >
               <p className="max-w-2xl text-lg leading-8 text-slate-300">
                 I am open to internship opportunities, collaborative student
                 projects, and conversations with teams that value thoughtful
@@ -59,9 +69,16 @@ export default function Contact() {
                   Download Resume
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="rounded-[32px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(34,211,238,0.12),rgba(255,255,255,0.03))] p-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.7, delay: 0.12 }}
+              viewport={{ once: true, amount: 0.2 }}
+              whileHover={{ y: -6 }}
+              className="rounded-[32px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(34,211,238,0.12),rgba(255,255,255,0.03))] p-8"
+            >
               <div className="inline-flex rounded-2xl border border-cyan-300/20 bg-cyan-400/10 p-3 text-cyan-100">
                 <Bot size={20} />
               </div>
@@ -83,7 +100,7 @@ export default function Contact() {
                   <p>What kind of opportunities is Yenula looking for?</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </SectionReveal>
       </div>

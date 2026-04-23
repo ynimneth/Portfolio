@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { Code2, ExternalLink, FolderKanban } from "lucide-react";
 
 const projects = [
@@ -35,35 +35,70 @@ const projects = [
 ];
 
 export default function Projects() {
+  const container: Variants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.14,
+      },
+    },
+  };
+
+  const item: Variants = {
+    hidden: { opacity: 0, y: 36, filter: "blur(8px)" },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
     <section id="projects" className="py-24 px-6 text-white">
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold mb-12 text-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          className="mb-12 text-center text-3xl font-bold md:text-4xl"
+          initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
           My Projects
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
           {projects.map((project, index) => (
             <motion.article
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md hover:scale-[1.02] hover:bg-white/10 transition duration-300"
+              variants={item}
+              whileHover={{ y: -10 }}
+              className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md transition duration-300 hover:border-cyan-300/25 hover:bg-white/10"
             >
               <div className="relative h-52 w-full overflow-hidden bg-white/5">
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,transparent,rgba(2,8,23,0.55))]" />
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition duration-700 group-hover:scale-110"
+                />
+                <motion.div
+                  animate={{ x: ["-100%", "160%"] }}
+                  transition={{
+                    duration: 2.8,
+                    repeat: Infinity,
+                    repeatDelay: 3.5,
+                    ease: "easeInOut",
+                    delay: index * 0.4,
+                  }}
+                  className="absolute inset-y-0 z-20 w-20 rotate-12 bg-white/10 blur-xl"
                 />
               </div>
 
@@ -107,7 +142,7 @@ export default function Projects() {
               </div>
             </motion.article>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

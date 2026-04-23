@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, Download, GitBranch, Sparkles } from "lucide-react";
+import { useRef } from "react";
 
 const metrics = [
   { value: "3+", label: "Featured projects shipped" },
@@ -10,15 +11,44 @@ const metrics = [
 ];
 
 export default function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const contentY = useTransform(scrollYProgress, [0, 1], [0, 70]);
+  const glowY = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const cardY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+
   return (
     <section
+      ref={sectionRef}
       id="home"
       className="relative flex min-h-screen items-center overflow-hidden px-6 pb-16 pt-32 text-white"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_36%),radial-gradient(circle_at_80%_20%,_rgba(59,130,246,0.16),_transparent_26%)]" />
+      <motion.div
+        style={{ y: glowY }}
+        className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(34,211,238,0.18),_transparent_36%),radial-gradient(circle_at_80%_20%,_rgba(59,130,246,0.16),_transparent_26%)]"
+      />
+      <motion.div
+        animate={{
+          x: [0, 16, -10, 0],
+          y: [0, -24, 12, 0],
+        }}
+        transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute left-[8%] top-28 -z-10 h-40 w-40 rounded-full bg-cyan-400/10 blur-3xl"
+      />
+      <motion.div
+        animate={{
+          x: [0, -18, 10, 0],
+          y: [0, 24, -12, 0],
+        }}
+        transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute right-[10%] top-40 -z-10 h-56 w-56 rounded-full bg-blue-400/10 blur-3xl"
+      />
 
       <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-        <div>
+        <motion.div style={{ y: contentY }}>
           <motion.div
             className="inline-flex items-center gap-2 rounded-full border border-cyan-300/20 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-100"
             initial={{ opacity: 0, y: 24 }}
@@ -108,16 +138,26 @@ export default function Hero() {
             <span className="h-1 w-1 rounded-full bg-slate-600" />
             <span>Open to internships and collaborative builds</span>
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
+          style={{ y: cardY }}
           className="relative"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.25, duration: 0.8 }}
         >
-          <div className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.22),_transparent_55%)] blur-3xl" />
+          <motion.div
+            animate={{ rotate: [0, 4, 0, -4, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,_rgba(34,211,238,0.22),_transparent_55%)] blur-3xl"
+          />
           <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.04] p-6 shadow-[0_25px_80px_rgba(2,8,23,0.45)] backdrop-blur-2xl">
+            <motion.div
+              animate={{ x: ["-10%", "10%", "-10%"] }}
+              transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute inset-x-0 top-0 h-px bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent)]"
+            />
             <p className="text-sm uppercase tracking-[0.24em] text-cyan-100/80">
               Snapshot
             </p>
@@ -131,13 +171,14 @@ export default function Hero() {
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
               {metrics.map((metric) => (
-                <div
+                <motion.div
                   key={metric.label}
+                  whileHover={{ y: -4, scale: 1.01 }}
                   className="rounded-2xl border border-white/10 bg-slate-950/55 p-4"
                 >
                   <p className="text-2xl font-semibold text-white">{metric.value}</p>
                   <p className="mt-1 text-sm text-slate-400">{metric.label}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
 

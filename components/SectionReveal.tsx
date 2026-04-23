@@ -5,14 +5,21 @@ import { ReactNode } from "react";
 
 type SectionRevealProps = {
   children: ReactNode;
+  className?: string;
+  delay?: number;
 };
 
-export default function SectionReveal({ children }: SectionRevealProps) {
+export default function SectionReveal({
+  children,
+  className,
+  delay = 0,
+}: SectionRevealProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+      className={className}
+      initial={{ opacity: 0, y: 48, filter: "blur(10px)", scale: 0.985 }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+      transition={{ duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] }}
       viewport={{ once: true, amount: 0.2 }}
     >
       {children}

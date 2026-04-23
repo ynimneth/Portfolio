@@ -1,4 +1,5 @@
 import Navbar from "../components/Navbar";
+import PageProgress from "../components/PageProgress";
 import Hero from "../components/sections/Hero";
 import About from "../components/sections/About";
 import Education from "../components/sections/Education";
@@ -12,6 +13,7 @@ import ValueProposition from "../components/sections/ValueProposition";
 export default function Home() {
   return (
     <main className="min-h-screen text-white">
+      <PageProgress />
       <Navbar />
       <Hero />
       <About />

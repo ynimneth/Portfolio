@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SectionReveal from "../SectionReveal";
 
 export default function About() {
@@ -32,7 +35,14 @@ export default function About() {
             </div>
 
             <div className="grid gap-4">
-              <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6">
+              <motion.div
+                initial={{ opacity: 0, x: 26, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.65, delay: 0.08 }}
+                viewport={{ once: true, amount: 0.25 }}
+                whileHover={{ x: -4 }}
+                className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6"
+              >
                 <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
                   Focus Areas
                 </p>
@@ -40,9 +50,16 @@ export default function About() {
                   Frontend engineering, component-driven UI, full-stack academic
                   projects, and practical automation concepts.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6">
+              <motion.div
+                initial={{ opacity: 0, x: 26, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.65, delay: 0.16 }}
+                viewport={{ once: true, amount: 0.25 }}
+                whileHover={{ x: -4 }}
+                className="rounded-[28px] border border-white/10 bg-white/[0.04] p-6"
+              >
                 <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
                   Working Style
                 </p>
@@ -50,9 +67,16 @@ export default function About() {
                   I like structured code, clean interfaces, strong iteration, and
                   learning by building projects end-to-end.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="rounded-[28px] border border-cyan-300/15 bg-cyan-400/10 p-6">
+              <motion.div
+                initial={{ opacity: 0, x: 26, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
+                transition={{ duration: 0.65, delay: 0.24 }}
+                viewport={{ once: true, amount: 0.25 }}
+                whileHover={{ x: -4 }}
+                className="rounded-[28px] border border-cyan-300/15 bg-cyan-400/10 p-6"
+              >
                 <p className="text-sm uppercase tracking-[0.2em] text-cyan-100/80">
                   Current Goal
                 </p>
@@ -60,7 +84,7 @@ export default function About() {
                   Grow through internships, deeper full-stack work, and projects
                   that raise the quality bar every time.
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </SectionReveal>
