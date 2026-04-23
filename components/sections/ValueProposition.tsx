@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { ArrowUpRight, Blocks, BriefcaseBusiness, MessageSquareMore } from "lucide-react";
 import SectionReveal from "../SectionReveal";
+
+const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
 
 const pillars = [
   {
@@ -26,7 +28,7 @@ const pillars = [
 ];
 
 export default function ValueProposition() {
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 32, filter: "blur(8px)" },
     visible: (index: number) => ({
       opacity: 1,
@@ -35,7 +37,7 @@ export default function ValueProposition() {
       transition: {
         duration: 0.65,
         delay: index * 0.12,
-        ease: [0.22, 1, 0.36, 1],
+        ease: SMOOTH_EASE,
       },
     }),
   };

@@ -4,6 +4,8 @@ import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
 import { Code2, ExternalLink, FolderKanban } from "lucide-react";
 
+const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
+
 const projects = [
   {
     title: "Blood Bank Management System",
@@ -50,7 +52,7 @@ export default function Projects() {
       opacity: 1,
       y: 0,
       filter: "blur(0px)",
-      transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.7, ease: SMOOTH_EASE },
     },
   };
 

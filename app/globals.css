@@ -16,7 +16,7 @@ body {
     radial-gradient(circle at 80% 10%, rgba(59, 130, 246, 0.12), transparent 24%),
     linear-gradient(180deg, #040816 0%, #07111f 48%, #04070f 100%);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
 ::selection {

@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import SectionReveal from "../SectionReveal";
 
+const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
+
 const milestones = [
   {
     year: "2024",
@@ -34,7 +36,7 @@ export default function Milestones() {
                 key={item.title}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30, filter: "blur(8px)" }}
                 whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                transition={{ duration: 0.7, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.7, delay: index * 0.1, ease: SMOOTH_EASE }}
                 viewport={{ once: true, amount: 0.25 }}
                 whileHover={{ x: 4 }}
                 className="relative pl-12 md:pl-16"

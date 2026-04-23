@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import { GraduationCap, MapPin } from "lucide-react";
 import SectionReveal from "../SectionReveal";
 
+const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
+
 export default function Education() {
   return (
     <section id="education" className="py-24 px-6 text-white">
@@ -14,7 +16,7 @@ export default function Education() {
           <motion.div
             initial={{ opacity: 0, y: 32, filter: "blur(8px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.7, ease: SMOOTH_EASE }}
             viewport={{ once: true, amount: 0.25 }}
             whileHover={{ y: -6 }}
             className="relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-8 backdrop-blur-md"
