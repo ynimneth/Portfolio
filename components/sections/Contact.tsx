@@ -1,8 +1,11 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import SectionReveal from "../SectionReveal";
-import { ArrowUpRight, Bot, Download, GitBranch } from "lucide-react";
+import { ArrowUpRight, Download, GitBranch, Mail, MapPin, Phone } from "lucide-react";
+
+const profileImage = "/profile/profile-photo.jpg";
 
 export default function Contact() {
   return (
@@ -36,9 +39,36 @@ export default function Contact() {
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
                   <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
+                    Phone
+                  </p>
+                  <a
+                    href="tel:0766154534"
+                    className="mt-3 inline-flex items-center gap-3 text-lg text-white transition hover:text-cyan-200"
+                  >
+                    <Phone size={18} />
+                    0766154534
+                  </a>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
+                  <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
+                    Email
+                  </p>
+                  <a
+                    href="mailto:ynimneth@gmail.com"
+                    className="mt-3 inline-flex items-center gap-3 text-lg text-white transition hover:text-cyan-200"
+                  >
+                    <Mail size={18} />
+                    ynimneth@gmail.com
+                  </a>
+                </div>
+                <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
+                  <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
                     Location
                   </p>
-                  <p className="mt-3 text-lg text-white">Sri Lanka</p>
+                  <p className="mt-3 inline-flex items-center gap-3 text-lg text-white">
+                    <MapPin size={18} />
+                    Malambe, Sri Lanka
+                  </p>
                 </div>
                 <div className="rounded-2xl border border-white/10 bg-slate-950/50 p-5">
                   <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
@@ -79,27 +109,24 @@ export default function Contact() {
               whileHover={{ y: -6 }}
               className="rounded-[32px] border border-cyan-300/15 bg-[linear-gradient(160deg,rgba(34,211,238,0.12),rgba(255,255,255,0.03))] p-8"
             >
-              <div className="inline-flex rounded-2xl border border-cyan-300/20 bg-cyan-400/10 p-3 text-cyan-100">
-                <Bot size={20} />
-              </div>
-              <h3 className="mt-5 text-2xl font-semibold tracking-tight">
-                Quick way to explore the portfolio
-              </h3>
-              <p className="mt-4 leading-8 text-slate-200">
-                The AI assistant in the bottom corner can answer questions about
-                projects, skills, and background instantly, which makes the site
-                feel more interactive for recruiters and visitors.
-              </p>
-              <div className="mt-8 rounded-2xl border border-white/10 bg-slate-950/45 p-5">
-                <p className="text-sm uppercase tracking-[0.2em] text-slate-400">
-                  Suggested prompts
-                </p>
-                <div className="mt-4 space-y-3 text-sm text-slate-200">
-                  <p>What projects has Yenula built?</p>
-                  <p>Which technologies does Yenula use most?</p>
-                  <p>What kind of opportunities is Yenula looking for?</p>
+              <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-slate-950/40">
+                <div className="relative aspect-[4/5] w-full">
+                  <Image
+                    src={profileImage}
+                    alt="Yenula Nimneth portrait"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
+
+              <h3 className="mt-5 text-2xl font-semibold tracking-tight">
+                Personal Profile
+              </h3>
+              <p className="mt-4 leading-8 text-slate-200">
+                A clean snapshot for recruiters and visitors, with your photo
+                and direct contact details in one place.
+              </p>
             </motion.div>
           </div>
         </SectionReveal>

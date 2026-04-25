@@ -7,7 +7,6 @@ import Skills from "../components/sections/Skills";
 import Projects from "../components/sections/Projects";
 import Milestones from "../components/sections/Milestones";
 import Contact from "../components/sections/Contact";
-import SmoothAIChatbot from "../components/sections/SmoothAIChatbot";
 import ValueProposition from "../components/sections/ValueProposition";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
       <Projects />
       <Milestones />
       <Contact />
-      <SmoothAIChatbot />
     </main>
   );
 }
