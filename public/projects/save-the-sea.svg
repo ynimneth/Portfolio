@@ -1,0 +1,56 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="36" fill="url(#bg)"/>
+  <circle cx="1022" cy="130" r="136" fill="#4F46E5" fill-opacity="0.18"/>
+  <circle cx="962" cy="654" r="190" fill="#38BDF8" fill-opacity="0.12"/>
+  <circle cx="178" cy="178" r="152" fill="#0EA5E9" fill-opacity="0.12"/>
+  <rect x="108" y="74" width="984" height="652" rx="42" fill="#081329" fill-opacity="0.62" stroke="#BFDBFE" stroke-opacity="0.12" stroke-width="2"/>
+  <rect x="148" y="116" width="288" height="544" rx="34" fill="url(#phone1)"/>
+  <rect x="456" y="160" width="288" height="500" rx="34" fill="url(#phone2)"/>
+  <rect x="764" y="128" width="288" height="532" rx="34" fill="url(#phone3)"/>
+  <ellipse cx="284" cy="256" rx="74" ry="126" fill="#38BDF8" fill-opacity="0.84"/>
+  <ellipse cx="236" cy="274" rx="44" ry="72" fill="#1D4ED8" fill-opacity="0.5"/>
+  <ellipse cx="324" cy="236" rx="24" ry="38" fill="#DBEAFE" fill-opacity="0.4"/>
+  <rect x="172" y="462" width="238" height="164" rx="34" fill="#FFFBFF"/>
+  <text x="192" y="526" fill="#1F2937" font-family="Arial, sans-serif" font-size="30" font-weight="700">Save</text>
+  <text x="192" y="566" fill="#1F2937" font-family="Arial, sans-serif" font-size="30" font-weight="700">the</text>
+  <text x="258" y="566" fill="#6366F1" font-family="Arial, sans-serif" font-size="30" font-weight="700">sea</text>
+  <rect x="192" y="592" width="82" height="34" rx="17" fill="#1F2937"/>
+  <rect x="490" y="204" width="220" height="164" rx="32" fill="#FFFBFF"/>
+  <rect x="520" y="224" width="94" height="8" rx="4" fill="#6366F1"/>
+  <rect x="620" y="224" width="28" height="8" rx="4" fill="#E5E7EB"/>
+  <rect x="654" y="224" width="28" height="8" rx="4" fill="#E5E7EB"/>
+  <text x="516" y="296" fill="#1F2937" font-family="Arial, sans-serif" font-size="28" font-weight="700">Ocean Crisis</text>
+  <text x="516" y="332" fill="#1F2937" font-family="Arial, sans-serif" font-size="28" font-weight="700">Alert</text>
+  <rect x="490" y="390" width="220" height="236" rx="32" fill="#0F172A" fill-opacity="0.38"/>
+  <path d="M524 486C548 454 586 438 620 445C664 454 689 495 706 534" stroke="#93C5FD" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="540" cy="480" r="12" fill="#BFDBFE"/>
+  <rect x="798" y="170" width="220" height="160" rx="30" fill="#FFFBFF"/>
+  <text x="830" y="230" fill="#9CA3AF" font-family="Arial, sans-serif" font-size="18" font-weight="500">Your Impact Score</text>
+  <text x="830" y="285" fill="#111827" font-family="Arial, sans-serif" font-size="56" font-weight="700">847</text>
+  <text x="954" y="286" fill="#22C55E" font-family="Arial, sans-serif" font-size="20" font-weight="700">+127</text>
+  <rect x="798" y="360" width="220" height="98" rx="26" fill="#FFFBFF"/>
+  <rect x="798" y="480" width="220" height="98" rx="26" fill="#111827" fill-opacity="0.86"/>
+  <rect x="798" y="600" width="220" height="22" rx="11" fill="#FFFFFF" fill-opacity="0.16"/>
+  <text x="830" y="418" fill="#111827" font-family="Arial, sans-serif" font-size="24" font-weight="700">Ocean Awareness</text>
+  <text x="830" y="536" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="24" font-weight="700">Eco Habits Tracker</text>
+  <text x="136" y="92" fill="#E0F2FE" font-family="Arial, sans-serif" font-size="24" font-weight="700">Save the Sea</text>
+  <defs>
+    <linearGradient id="bg" x1="78" y1="60" x2="1116" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="0.45" stop-color="#08194A"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="phone1" x1="148" y1="116" x2="436" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="1" stop-color="#0C4A6E"/>
+    </linearGradient>
+    <linearGradient id="phone2" x1="456" y1="160" x2="744" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1120"/>
+      <stop offset="1" stop-color="#1E3A8A"/>
+    </linearGradient>
+    <linearGradient id="phone3" x1="764" y1="128" x2="1052" y2="660" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#312E81"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+</svg>

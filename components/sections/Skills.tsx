@@ -1,17 +1,38 @@
+import { Award, ExternalLink } from "lucide-react";
 import SectionReveal from "../SectionReveal";
 
 const skillGroups = [
   {
     title: "Frontend",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS"],
+    skills: [
+      "React",
+      "Next.js",
+      "React Native",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS"
+    ],
   },
   {
     title: "Backend & Logic",
-    skills: ["Java", "Python", "MySQL"],
+    skills: [
+      "Java",
+      "Python",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "MySQL",
+    ],
   },
   {
-    title: "Workflow",
-    skills: ["Git", "GitHub", "Responsive UI", "Component Design"],
+    title: "Workflow & Design",
+    skills: [
+      "Git",
+      "GitHub",
+      "UI/UX",
+      "Component Design",
+      "Responsive UI",
+    ],
   },
 ];
 
@@ -51,6 +72,36 @@ export default function Skills() {
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 rounded-[28px] border border-cyan-300/20 bg-cyan-400/10 p-7 backdrop-blur-xl">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div className="max-w-3xl">
+                <div className="inline-flex rounded-2xl border border-cyan-300/20 bg-slate-950/40 p-3 text-cyan-100">
+                  <Award size={20} />
+                </div>
+                <p className="mt-4 text-sm uppercase tracking-[0.22em] text-cyan-200/80">
+                  Certificate
+                </p>
+                <h3 className="mt-2 text-2xl font-semibold text-white">
+                  UI/UX Competition Certificate
+                </h3>
+                <p className="mt-3 text-slate-200/90">
+                  Recognition for participating in a UI/UX competition, reflecting
+                  my interest in thoughtful interface design and user experience.
+                </p>
+              </div>
+
+              <a
+                href="/certificates/ui-ux-competition-certificate.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white px-5 py-3 text-sm font-medium text-slate-950 transition hover:scale-[1.02] hover:bg-cyan-100"
+              >
+                View Certificate
+                <ExternalLink size={16} />
+              </a>
+            </div>
           </div>
         </SectionReveal>
       </div>

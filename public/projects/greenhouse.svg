@@ -1,0 +1,28 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#07130F"/>
+  <rect x="54" y="54" width="1092" height="692" rx="38" fill="url(#bg)"/>
+  <circle cx="191" cy="168" r="110" fill="#34D399" fill-opacity="0.16"/>
+  <circle cx="996" cy="206" r="138" fill="#22C55E" fill-opacity="0.14"/>
+  <circle cx="932" cy="624" r="170" fill="#A3E635" fill-opacity="0.12"/>
+  <path d="M278 618L480 324L600 186L720 324L922 618H846L767 504H433L354 618H278Z" fill="#06281D" stroke="#6EE7B7" stroke-opacity="0.5" stroke-width="3"/>
+  <path d="M600 186V618" stroke="#BBF7D0" stroke-opacity="0.55" stroke-width="3"/>
+  <path d="M480 324H720" stroke="#BBF7D0" stroke-opacity="0.45" stroke-width="3"/>
+  <path d="M433 504H767" stroke="#BBF7D0" stroke-opacity="0.35" stroke-width="3"/>
+  <rect x="388" y="544" width="424" height="50" rx="25" fill="#14532D"/>
+  <path d="M444 534C444 488.712 480.712 452 526 452C571.288 452 608 488.712 608 534H444Z" fill="#4ADE80"/>
+  <path d="M592 524C592 485.892 622.892 455 661 455C699.108 455 730 485.892 730 524H592Z" fill="#86EFAC"/>
+  <path d="M500 428C523.077 428 541.786 409.291 541.786 386.214C541.786 363.137 523.077 344.428 500 344.428C500 367.504 481.291 386.214 458.214 386.214C458.214 409.291 476.923 428 500 428Z" fill="#DCFCE7"/>
+  <path d="M694 400C717.077 400 735.786 381.291 735.786 358.214C735.786 335.137 717.077 316.428 694 316.428C694 339.504 675.291 358.214 652.214 358.214C652.214 381.291 670.923 400 694 400Z" fill="#BBF7D0"/>
+  <rect x="166" y="154" width="170" height="96" rx="20" fill="#052E16" stroke="#4ADE80" stroke-opacity="0.35" stroke-width="2"/>
+  <rect x="864" y="150" width="170" height="96" rx="20" fill="#052E16" stroke="#4ADE80" stroke-opacity="0.35" stroke-width="2"/>
+  <text x="194" y="193" fill="#DCFCE7" font-family="Arial, sans-serif" font-size="24" font-weight="700">TEMP</text>
+  <text x="886" y="190" fill="#DCFCE7" font-family="Arial, sans-serif" font-size="24" font-weight="700">SOIL</text>
+  <text x="194" y="226" fill="#86EFAC" font-family="Arial, sans-serif" font-size="34" font-weight="700">24.8 C</text>
+  <text x="886" y="223" fill="#86EFAC" font-family="Arial, sans-serif" font-size="34" font-weight="700">41 %</text>
+  <defs>
+    <linearGradient id="bg" x1="106" y1="84" x2="1080" y2="712" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1F18"/>
+      <stop offset="1" stop-color="#123524"/>
+    </linearGradient>
+  </defs>
+</svg>

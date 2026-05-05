@@ -1,0 +1,59 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="36" fill="#F8FAFC"/>
+  <circle cx="958" cy="124" r="162" fill="#60A5FA" fill-opacity="0.22"/>
+  <circle cx="1014" cy="650" r="194" fill="#22C55E" fill-opacity="0.18"/>
+  <circle cx="204" cy="176" r="144" fill="#C7D2FE" fill-opacity="0.26"/>
+  <rect x="92" y="70" width="1016" height="660" rx="42" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="138" y="112" width="406" height="242" rx="36" fill="url(#hero)"/>
+  <rect x="166" y="292" width="352" height="56" rx="24" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <rect x="138" y="404" width="186" height="246" rx="30" fill="url(#card1)"/>
+  <rect x="356" y="404" width="186" height="246" rx="30" fill="url(#card2)"/>
+  <rect x="596" y="146" width="446" height="536" rx="42" fill="url(#detail)"/>
+  <text x="170" y="212" fill="#111827" font-family="Arial, sans-serif" font-size="52" font-weight="700">Morning Michel</text>
+  <text x="170" y="246" fill="#1F2937" font-family="Arial, sans-serif" font-size="24" font-weight="500">Experience Fashion With Our Shoe Lineup</text>
+  <rect x="188" y="428" width="88" height="24" rx="12" fill="#111827"/>
+  <rect x="386" y="428" width="98" height="24" rx="12" fill="#111827"/>
+  <path d="M198 522C230 494 280 488 328 498C368 507 394 526 420 548C386 562 356 586 320 592C280 598 241 585 210 560C199 551 193 539 198 522Z" fill="#1D4ED8"/>
+  <path d="M207 522C236 500 279 496 322 504C348 509 372 519 392 536C365 548 339 566 309 572C275 580 242 572 218 554C207 546 202 535 207 522Z" fill="#93C5FD"/>
+  <path d="M224 526C252 512 291 510 330 516C349 519 366 526 382 536C359 545 338 556 312 560C284 564 257 558 237 547C228 542 221 535 224 526Z" fill="#1E293B"/>
+  <path d="M415 520C445 496 491 488 535 496C573 503 597 520 622 542C591 556 565 580 533 588C495 598 457 591 428 568C417 559 411 541 415 520Z" fill="#3B82F6"/>
+  <path d="M425 520C452 500 492 494 531 500C555 504 577 514 595 528C570 540 547 558 519 566C487 574 456 568 433 552C423 545 418 534 425 520Z" fill="#FDE68A"/>
+  <path d="M440 524C466 510 503 508 539 514C558 517 574 524 588 534C567 543 548 553 524 558C497 564 471 559 452 549C444 544 437 534 440 524Z" fill="#CBD5E1"/>
+  <text x="180" y="606" fill="#111827" font-family="Arial, sans-serif" font-size="34" font-weight="700">Nike Shoes</text>
+  <text x="180" y="642" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">$199.99</text>
+  <text x="398" y="606" fill="#111827" font-family="Arial, sans-serif" font-size="34" font-weight="700">Nike Kyrie 1</text>
+  <text x="398" y="642" fill="#0F172A" font-family="Arial, sans-serif" font-size="28" font-weight="700">$129.99</text>
+  <text x="650" y="212" fill="#111827" font-family="Arial, sans-serif" font-size="52" font-weight="700">Nike Shoes Sneakers</text>
+  <text x="650" y="252" fill="#1F2937" font-family="Arial, sans-serif" font-size="30" font-weight="500">Men's shoes</text>
+  <text x="654" y="542" fill="#111827" font-family="Arial, sans-serif" font-size="26" font-weight="700">PRICE</text>
+  <text x="848" y="542" fill="#111827" font-family="Arial, sans-serif" font-size="26" font-weight="700">COLORS</text>
+  <text x="652" y="612" fill="#111827" font-family="Arial, sans-serif" font-size="48" font-weight="700">$199.99</text>
+  <circle cx="878" cy="586" r="18" fill="#2563EB" stroke="#FFFFFF" stroke-width="6"/>
+  <circle cx="924" cy="586" r="18" fill="#FB7185"/>
+  <circle cx="970" cy="586" r="18" fill="#111827"/>
+  <rect x="652" y="664" width="322" height="70" rx="35" fill="#111827"/>
+  <text x="700" y="709" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="34" font-weight="700">Add to cart</text>
+  <path d="M776 338C828 270 904 252 984 274C1028 286 1064 312 1090 350C1034 376 986 430 920 446C850 462 778 442 726 402C706 386 696 360 776 338Z" fill="#1D4ED8"/>
+  <path d="M790 338C836 282 905 268 975 286C1016 297 1048 320 1072 352C1022 374 979 421 920 434C857 448 792 430 746 396C728 382 721 358 790 338Z" fill="#93C5FD"/>
+  <path d="M812 348C851 310 908 300 965 314C995 321 1021 334 1040 352C998 368 962 398 913 408C861 418 809 406 773 384C759 375 754 360 812 348Z" fill="#1E293B"/>
+  <rect x="772" y="196" width="170" height="170" fill="#FFFFFF" fill-opacity="0.12"/>
+  <text x="822" y="340" fill="#FFFFFF" fill-opacity="0.2" font-family="Arial, sans-serif" font-size="180" font-weight="700">4</text>
+  <defs>
+    <linearGradient id="hero" x1="138" y1="112" x2="544" y2="354" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93C5FD"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="138" y1="404" x2="324" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86EFAC"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="356" y1="404" x2="542" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="detail" x1="596" y1="146" x2="1042" y2="682" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#86EFAC"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+  </defs>
+</svg>

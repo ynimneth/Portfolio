@@ -17,13 +17,40 @@ const projects = [
     image: "/projects/blood-bank.png",
   },
   {
+    title: "BURGIFY",
+    description:
+      "A mobile UI/UX concept for a burger ordering app with playful branding, product discovery, and a streamlined order flow.",
+    tech: "Figma, UI/UX Design, Mobile App Design, Prototyping",
+    github: "",
+    demo: "https://figma.com/proto/xgjf5GtEhbVucaIUkfqq9f/Untitled?node-id=0-1&p=f&t=UgdmvjR8qxnS4MeC-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
+    image: "/projects/burgify.svg",
+  },
+  {
+    title: "Save the Sea",
+    description:
+      "A mobile UI/UX concept focused on ocean awareness, eco habits, and action-driven storytelling to inspire marine conservation.",
+    tech: "Figma, UI/UX Design, Mobile App Design, Awareness Product Design",
+    github: "",
+    demo: "https://www.figma.com/proto/B3XJqq1MelAWTmumphE2Nh/Save_the_sea?node-id=5-3&p=f&t=f1SCVywexd8JZMPg-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=5%3A3&show-proto-sidebar=1",
+    image: "/projects/save-the-sea.svg",
+  },
+  {
+    title: "Shoe App UI/UX Concept",
+    description:
+      "A mobile shopping UI/UX concept for a sneaker app, combining bold product presentation, category browsing, and a focused purchase flow.",
+    tech: "Figma, UI/UX Design, Mobile Commerce Design, Prototyping",
+    github: "",
+    demo: "https://www.figma.com/proto/ImpCS7GTOaFHtEPWEQhaCd/Untitled?t=TfeFPK4AJmAS6aep-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&node-id=1-2&starting-point-node-id=1%3A2",
+    image: "/projects/shoe-app.svg",
+  },
+  {
     title: "Music Store Web Application",
     description:
       "A web application for customers, artists, and admins to manage music, orders, and payments.",
     tech: "Java, JSP, Servlets, MySQL",
     github: "https://github.com/ynimneth/Music-Store-Web-Application",
     demo: "",
-    image: "/projects/music-store.png",
+    image: "/projects/music-store.svg",
   },
   {
     title: "Greenhouse Automation System",
@@ -32,7 +59,7 @@ const projects = [
     tech: "ESP8266, Sensors, Blynk",
     github: "https://github.com/ynimneth/Greenhouse-Automation-System",
     demo: "",
-    image: "/projects/greenhouse.png",
+    image: "/projects/greenhouse.svg",
   },
 ];
 
@@ -119,15 +146,17 @@ export default function Projects() {
                 <p className="text-gray-400 mt-4 text-sm">{project.tech}</p>
 
                 <div className="mt-6 flex gap-3 flex-wrap">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 border border-white/20 px-4 py-2 rounded-lg text-sm hover:bg-white hover:text-black transition"
-                  >
-                    <Code2 size={16} />
-                    GitHub
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 border border-white/20 px-4 py-2 rounded-lg text-sm hover:bg-white hover:text-black transition"
+                    >
+                      <Code2 size={16} />
+                      GitHub
+                    </a>
+                  )}
 
                   {project.demo && (
                     <a
