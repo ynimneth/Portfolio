@@ -1,8 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { motion, type Variants } from "framer-motion";
-import { Code2, ExternalLink, FolderKanban } from "lucide-react";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
+import {
+  Code2,
+  ExternalLink,
+  FolderKanban,
+  Sparkles,
+  X,
+} from "lucide-react";
+import { useMemo, useState } from "react";
+import GitHubActivity from "../GitHubActivity";
 
 const SMOOTH_EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -12,7 +20,8 @@ const projects = [
     description:
       "A full-stack system for managing donors, blood requests, appointments, and admin operations.",
     tech: "React, Spring Boot, MySQL",
-    github: "https://github.com/ynimneth/Centralized-Blood-Donation-Management-System",
+    github:
+      "https://github.com/ynimneth/Centralized-Blood-Donation-Management-System",
     demo: "",
     image: "/projects/blood-bank.png",
   },
@@ -61,9 +70,160 @@ const projects = [
     demo: "",
     image: "/projects/greenhouse.svg",
   },
-];
+] as const;
+
+function getProjectTags(project: (typeof projects)[number]) {
+  return project.tech.split(",").map((tag) => tag.trim());
+}
+
+function ProjectCard({
+  project,
+  index,
+  onOpen,
+}: {
+  project: (typeof projects)[number];
+  index: number;
+  onOpen: () => void;
+}) {
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+  function handleMove(event: React.MouseEvent<HTMLElement>) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const offsetX = event.clientX - rect.left;
+    const offsetY = event.clientY - rect.top;
+    const rotateY = ((offsetX / rect.width) - 0.5) * 12;
+    const rotateX = (0.5 - offsetY / rect.height) * 10;
+
+    setRotate({ x: rotateX, y: rotateY });
+  }
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 36, filter: "blur(8px)" }}
+      whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: SMOOTH_EASE }}
+      viewport={{ once: true, amount: 0.15 }}
+      onMouseMove={handleMove}
+      onMouseLeave={() => setRotate({ x: 0, y: 0 })}
+      whileHover={{ y: -10 }}
+      style={{
+        transformStyle: "preserve-3d",
+        transform: `perspective(1200px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+      }}
+      className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md transition duration-300 hover:border-cyan-300/25 hover:bg-white/10"
+    >
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.18),_transparent_35%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+      <div className="relative h-52 w-full overflow-hidden bg-white/5">
+        <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,transparent,rgba(2,8,23,0.58))]" />
+        <Image
+          src={project.image}
+          alt={project.title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="object-cover transition duration-700 group-hover:scale-110"
+        />
+        <motion.div
+          animate={{ x: ["-100%", "160%"] }}
+          transition={{
+            duration: 2.8,
+            repeat: Infinity,
+            repeatDelay: 3.5,
+            ease: "easeInOut",
+            delay: index * 0.4,
+          }}
+          className="absolute inset-y-0 z-20 w-20 rotate-12 bg-white/10 blur-xl"
+        />
+      </div>
+
+      <div className="relative p-6">
+        <div className="mb-3 flex items-center gap-2 text-slate-300">
+          <FolderKanban size={18} />
+          <span className="text-sm">Featured Project</span>
+        </div>
+
+        <h3 className="text-2xl font-semibold">{project.title}</h3>
+
+        <p className="mt-4 line-clamp-3 text-slate-300 leading-7">
+          {project.description}
+        </p>
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {getProjectTags(project)
+            .slice(0, 3)
+            .map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-slate-300"
+              >
+                {tag}
+              </span>
+            ))}
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-3">
+          <button
+            type="button"
+            onClick={onOpen}
+            className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm transition hover:bg-white hover:text-black"
+          >
+            <Sparkles size={16} />
+            View Details
+          </button>
+
+          {project.github ? (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm transition hover:bg-white hover:text-black"
+            >
+              <Code2 size={16} />
+              GitHub
+            </a>
+          ) : null}
+
+          {project.demo ? (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2 text-sm text-black transition hover:opacity-90"
+            >
+              <ExternalLink size={16} />
+              Live Demo
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </motion.article>
+  );
+}
 
 export default function Projects() {
+  const [selectedFilter, setSelectedFilter] = useState("All");
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[number] | null
+  >(null);
+
+  const filters = useMemo(() => {
+    const tags = new Set<string>();
+    projects.forEach((project) => {
+      getProjectTags(project).forEach((tag) => tags.add(tag));
+    });
+
+    return ["All", ...Array.from(tags).slice(0, 7)];
+  }, []);
+
+  const filteredProjects = useMemo(() => {
+    if (selectedFilter === "All") {
+      return projects;
+    }
+
+    return projects.filter((project) =>
+      getProjectTags(project).includes(selectedFilter)
+    );
+  }, [selectedFilter]);
+
   const container: Variants = {
     hidden: {},
     visible: {
@@ -73,108 +233,155 @@ export default function Projects() {
     },
   };
 
-  const item: Variants = {
-    hidden: { opacity: 0, y: 36, filter: "blur(8px)" },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: "blur(0px)",
-      transition: { duration: 0.7, ease: SMOOTH_EASE },
-    },
-  };
-
   return (
-    <section id="projects" className="py-24 px-6 text-white">
-      <div className="max-w-6xl mx-auto">
-        <motion.h2
-          className="mb-12 text-center text-3xl font-bold md:text-4xl"
+    <section id="projects" className="px-6 py-24 text-white">
+      <div className="mx-auto max-w-6xl">
+        <motion.div
           initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
+          className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
-          My Projects
-        </motion.h2>
+          <div className="max-w-3xl">
+            <p className="mb-3 text-sm uppercase tracking-[0.28em] text-cyan-200/80">
+              Projects
+            </p>
+            <h2 className="text-3xl font-semibold tracking-tight md:text-5xl">
+              A more interactive showcase for the products and concepts I have
+              built so far.
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setSelectedFilter(filter)}
+                className={`rounded-full border px-4 py-2 text-sm transition ${
+                  selectedFilter === filter
+                    ? "border-cyan-300/30 bg-cyan-400/15 text-cyan-100"
+                    : "border-white/10 bg-white/5 text-slate-300 hover:border-cyan-300/20 hover:bg-white/10 hover:text-white"
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </motion.div>
 
         <motion.div
           variants={container}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
-          className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+          className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
         >
-          {projects.map((project, index) => (
-            <motion.article
+          {filteredProjects.map((project, index) => (
+            <ProjectCard
               key={project.title}
-              variants={item}
-              whileHover={{ y: -10 }}
-              className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md transition duration-300 hover:border-cyan-300/25 hover:bg-white/10"
-            >
-              <div className="relative h-52 w-full overflow-hidden bg-white/5">
-                <div className="absolute inset-0 z-10 bg-[linear-gradient(180deg,transparent,rgba(2,8,23,0.55))]" />
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition duration-700 group-hover:scale-110"
-                />
-                <motion.div
-                  animate={{ x: ["-100%", "160%"] }}
-                  transition={{
-                    duration: 2.8,
-                    repeat: Infinity,
-                    repeatDelay: 3.5,
-                    ease: "easeInOut",
-                    delay: index * 0.4,
-                  }}
-                  className="absolute inset-y-0 z-20 w-20 rotate-12 bg-white/10 blur-xl"
-                />
-              </div>
-
-              <div className="p-6">
-                <div className="flex items-center gap-2 text-gray-300 mb-3">
-                  <FolderKanban size={18} />
-                  <span className="text-sm">Featured Project</span>
-                </div>
-
-                <h3 className="text-2xl font-semibold">{project.title}</h3>
-
-                <p className="text-gray-300 mt-4 leading-7">
-                  {project.description}
-                </p>
-
-                <p className="text-gray-400 mt-4 text-sm">{project.tech}</p>
-
-                <div className="mt-6 flex gap-3 flex-wrap">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 border border-white/20 px-4 py-2 rounded-lg text-sm hover:bg-white hover:text-black transition"
-                    >
-                      <Code2 size={16} />
-                      GitHub
-                    </a>
-                  )}
-
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-white text-black px-4 py-2 rounded-lg text-sm hover:opacity-90 transition"
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </a>
-                  )}
-                </div>
-              </div>
-            </motion.article>
+              project={project}
+              index={index}
+              onOpen={() => setSelectedProject(project)}
+            />
           ))}
         </motion.div>
+
+        <GitHubActivity />
       </div>
+
+      <AnimatePresence>
+        {selectedProject ? (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[85] flex items-center justify-center bg-slate-950/75 p-4 backdrop-blur-md"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30, scale: 0.98, filter: "blur(10px)" }}
+              animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, y: 16, scale: 0.98 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+              onClick={(event) => event.stopPropagation()}
+              className="relative w-full max-w-4xl overflow-hidden rounded-[32px] border border-white/10 bg-[#07111f]/95 shadow-[0_30px_100px_rgba(2,8,23,0.45)]"
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedProject(null)}
+                className="absolute right-4 top-4 z-20 inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-slate-950/70 text-slate-200 transition hover:bg-white/10 hover:text-white"
+                aria-label="Close project details"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="grid gap-0 lg:grid-cols-[1.1fr_0.9fr]">
+                <div className="relative min-h-72">
+                  <Image
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 55vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(2,8,23,0.7))]" />
+                </div>
+
+                <div className="p-6 md:p-8">
+                  <p className="text-sm uppercase tracking-[0.22em] text-cyan-200/80">
+                    Project Detail
+                  </p>
+                  <h3 className="mt-3 text-3xl font-semibold text-white">
+                    {selectedProject.title}
+                  </h3>
+                  <p className="mt-4 leading-8 text-slate-300">
+                    {selectedProject.description}
+                  </p>
+
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {getProjectTags(selectedProject).map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs uppercase tracking-[0.18em] text-slate-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    {selectedProject.github ? (
+                      <a
+                        href={selectedProject.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-medium text-white transition hover:border-cyan-300/30 hover:bg-cyan-400/10"
+                      >
+                        <Code2 size={16} />
+                        View GitHub
+                      </a>
+                    ) : null}
+
+                    {selectedProject.demo ? (
+                      <a
+                        href={selectedProject.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-sm font-medium text-slate-950 transition hover:opacity-90"
+                      >
+                        <ExternalLink size={16} />
+                        Open Demo
+                      </a>
+                    ) : null}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   );
 }
