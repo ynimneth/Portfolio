@@ -93,6 +93,9 @@ export default function Contact() {
         {
           from_name: form.name,
           from_email: form.email,
+          reply_to: form.email,
+          sender_name: form.name,
+          sender_email: form.email,
           message: form.message,
         },
         publicKey

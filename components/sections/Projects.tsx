@@ -32,7 +32,16 @@ const projects = [
     tech: "Figma, UI/UX Design, Mobile App Design, Prototyping",
     github: "",
     demo: "https://figma.com/proto/xgjf5GtEhbVucaIUkfqq9f/Untitled?node-id=0-1&p=f&t=UgdmvjR8qxnS4MeC-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1",
-    image: "/projects/burgify.svg",
+    image: "/projects/burgify.png",
+  },
+  {
+    title: "Lifeline-Mobile-App",
+    description:
+      "A mobile application for managing fitness routines, workouts, and user progress.",
+    tech: "ReactNative, Node.js, Express.js, MongoDB",
+    github: "https://github.com/ynimneth/Lifeline-Mobile-App.git",
+    demo: "",
+    image: "/projects/greenhouse.svg",
   },
   {
     title: "Save the Sea",
@@ -53,20 +62,20 @@ const projects = [
     image: "/projects/shoe-app.svg",
   },
   {
-    title: "Music Store Web Application",
+    title: "Web-Based Music Store",
     description:
       "A web application for customers, artists, and admins to manage music, orders, and payments.",
     tech: "Java, JSP, Servlets, MySQL",
-    github: "https://github.com/ynimneth/Music-Store-Web-Application",
+    github: "https://github.com/ynimneth/Web_Based_Music_Store.git",
     demo: "",
     image: "/projects/music-store.svg",
   },
   {
-    title: "Greenhouse Automation System",
+    title: "Fitness_Management_System",
     description:
-      "An IoT-based system to monitor temperature, humidity, soil moisture, and automate greenhouse devices.",
-    tech: "ESP8266, Sensors, Blynk",
-    github: "https://github.com/ynimneth/Greenhouse-Automation-System",
+      "A web application for managing fitness routines, workouts, and user progress.",
+    tech: "Java,tailwindcss,HTML,MySQL",
+    github: "https://github.com/ynimneth/Fitness_Management_System.git",
     demo: "",
     image: "/projects/greenhouse.svg",
   },

@@ -6,7 +6,6 @@ import ClientOverlays from "../components/ClientOverlays";
 import PageTransition from "../components/PageTransition";
 import SectionSkeleton from "../components/SectionSkeleton";
 import Hero from "../components/sections/Hero";
-import SmoothAIChatbot from "../components/sections/SmoothAIChatbot";
 
 const About = dynamic(() => import("../components/sections/About"), {
   loading: () => <SectionSkeleton />,
@@ -49,7 +48,6 @@ export default function Home() {
       <Milestones />
       <Contact />
       <BackToTopButton />
-      <SmoothAIChatbot />
     </main>
   );
 }
