@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yenula Nimneth - Dark Theme CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+            line-height: 1.5;
+            padding: 2rem;
+            color: #e2e8f0;
+        }
+
+        /* Main CV Container */
+        .cv-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background-color: #0f0f1a;
+            border-radius: 24px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(59, 130, 246, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cv-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Two Column Layout */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 32% 68%;
+        }
+
+        /* ========== LEFT COLUMN ========== */
+        .left-panel {
+            background: linear-gradient(135deg, #0a0a0f 0%, #13131f 100%);
+            color: #e2e8f0;
+            padding: 2rem 1.8rem;
+            position: relative;
+            overflow: hidden;
+            border-right: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .left-panel::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(59,130,246,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6, #ec4899);
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 600;
+            color: white;
+            box-shadow: 0 10px 30px -5px rgba(59, 130, 246, 0.4);
+            border: 3px solid rgba(59, 130, 246, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px -5px rgba(59, 130, 246, 0.6);
+        }
+
+        .left-panel h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, #94a3b8, #60a5fa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            background: rgba(59, 130, 246, 0.15);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            color: #cbd5e1;
+            margin-top: 0.3rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            font-weight: 500;
+        }
+
+        .contact-info {
+            margin: 2rem 0;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.82rem;
+            word-break: break-word;
+            color: #94a3b8;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(5px);
+            color: #60a5fa;
+        }
+
+        .contact-item a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: #60a5fa;
+        }
+
+        .section-title-left {
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-left: 3px solid #3b82f6;
+            padding-left: 0.75rem;
+            margin: 2rem 0 1.2rem 0;
+            color: #cbd5e1;
+        }
+
+        .skill-block {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-cat {
+            font-weight: 600;
+            font-size: 0.7rem;
+            color: #64748b;
+            margin-bottom: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-badge {
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .skill-badge:hover {
+            background: rgba(59, 130, 246, 0.25);
+            color: #60a5fa;
+            transform: translateY(-2px);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
+
+        .language-item, .soft-item {
+            font-size: 0.85rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+        }
+
+        /* ========== RIGHT COLUMN ========== */
+        .right-panel {
+            background: #0a0a0f;
+            padding: 2rem 2.2rem;
+        }
+
+        .about-text {
+            margin-bottom: 2rem;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #13131f 0%, #0f0f1a 100%);
+            border-radius: 16px;
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.6;
+            border-left: 4px solid #3b82f6;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title-right {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            border-bottom: 3px solid #3b82f6;
+            display: inline-block;
+            padding-bottom: 0.3rem;
+            margin: 1.8rem 0 1.2rem 0;
+            letter-spacing: -0.3px;
+        }
+
+        .edu-item {
+            margin-bottom: 1.3rem;
+            padding: 0.8rem 1rem;
+            background: #13131f;
+            border-radius: 12px;
+            transition: all 0.2s ease;
+            border: 1px solid #1e1e2e;
+        }
+
+        .edu-item:hover {
+            background: #1a1a2a;
+            transform: translateX(5px);
+            border-color: #3b82f6;
+        }
+
+        .edu-title {
+            font-weight: 700;
+            color: #f1f5f9;
+            font-size: 1rem;
+        }
+
+        .edu-meta {
+            font-size: 0.7rem;
+            color: #60a5fa;
+            font-weight: 600;
+            margin: 0.3rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .edu-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 0.3rem;
+        }
+
+        .project-item {
+            margin-bottom: 1.6rem;
+            padding: 1rem;
+            background: #13131f;
+            border-radius: 12px;
+            border: 1px solid #1e1e2e;
+            transition: all 0.2s ease;
+        }
+
+        .project-item:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.1);
+            transform: translateY(-2px);
+            background: #18182a;
+        }
+
+        .project-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-name {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #f1f5f9;
+        }
+
+        .project-stack {
+            font-size: 0.65rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #1e1b4b, #2e1a4a);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            color: #a78bfa;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        .project-desc {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+        }
+
+        .project-desc li {
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, #1e1b4b, #2e1a4a);
+            padding: 0.6rem 1.2rem;
+            border-radius: 12px;
+            margin: 1rem 0 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-block;
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-2px);
+            border-color: #8b5cf6;
+        }
+
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .value-item {
+            background: #13131f;
+            padding: 0.6rem 1rem;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+            color: #94a3b8;
+            border: 1px solid #1e1e2e;
+        }
+
+        .value-item:hover {
+            background: #1a1a2a;
+            color: #60a5fa;
+            transform: translateY(-2px);
+            border-color: #3b82f6;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border: 0;
+            height: 1px;
+            background: linear-gradient(to right, #1e1e2e, transparent);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .cv-grid {
+                grid-template-columns: 1fr;
+            }
+            .left-panel {
+                text-align: center;
+                border-right: none;
+                border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+            }
+            .contact-item {
+                justify-content: center;
+            }
+            .section-title-left {
+                text-align: left;
+            }
+            .value-prop-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            .cv-container {
+                box-shadow: none;
+                max-width: 100%;
+            }
+            .project-item, .edu-item {
+                break-inside: avoid;
+            }
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.7rem;
+            padding: 1.2rem;
+            background: #0a0a0f;
+            color: #64748b;
+            border-top: 1px solid #1e1e2e;
+        }
+    </style>
+</head>
+<body>
+<div class="cv-container">
+    <div class="cv-grid">
+        <!-- LEFT PANEL -->
+        <div class="left-panel">
+            <div class="profile-section">
+                <div class="avatar"></div>
+                <h1>Yenula Nimneth</h1>
+                <div class="tagline">Undergraduate</div>
+                <div class="tagline">BSc (Hons) Information Technology</div>
+            </div>
+
+            <div class="contact-info">
+                <div class="contact-item">📞 +94 76 615 4534</div>
+                <div class="contact-item">✉️ ynimneth@gmail.com</div>
+                <div class="contact-item">📍 Malabe, Sri Lanka</div>
+                <div class="contact-item">🔗 yenula.vercel.app</div>
+                <div class="contact-item">🐙 github.com/ynimneth</div>
+                <div class="contact-item">🔗 linkedin.com/in/yenula</div>
+            </div>
+
+            <div class="section-title-left">Technical Skills</div>
+            <div class="skill-block">
+                <div class="skill-cat">Frontend</div>
+                <div class="skill-items">
+                    <span class="skill-badge">React</span>
+                    <span class="skill-badge">Next.js</span>
+                    <span class="skill-badge">React Native</span>
+                    <span class="skill-badge">TypeScript</span>
+                    <span class="skill-badge">Tailwind CSS</span>
+                </div>
+            </div>
+            <div class="skill-block">
+                <div class="skill-cat">Backend & DB</div>
+                <div class="skill-items">
+                    <span class="skill-badge">Node.js</span>
+                    <span class="skill-badge">Express.js</span>
+                    <span class="skill-badge">Java</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">MongoDB</span>
+                    <span class="skill-badge">MySQL</span>
+                </div>
+            </div>
+            <div class="skill-block">
+                <div class="skill-cat">Design & Workflow</div>
+                <div class="skill-items">
+                    <span class="skill-badge">Figma</span>
+                    <span class="skill-badge">UI/UX</span>
+                    <span class="skill-badge">Git/GitHub</span>
+                    <span class="skill-badge">Responsive UI</span>
+                </div>
+            </div>
+
+            <div class="section-title-left">Soft Skills</div>
+            <div class="soft-item">✨ Attention to detail</div>
+            <div class="soft-item">🤝 Team collaboration</div>
+            <div class="soft-item">🧠 Problem solving</div>
+            <div class="soft-item">📢 Clean communication</div>
+            <div class="soft-item">🚀 Product-minded thinking</div>
+
+            <div class="section-title-left">Languages</div>
+            <div class="language-item">🇬🇧 English – Proficient</div>
+            <div class="language-item">🇱🇰 Sinhala – Native</div>
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="right-panel">
+            <div class="about-text">
+                <strong>⚡ About Me</strong><br>
+                Full-stack developer who cares about both the database and the user interface. I write clean code, solve real problems, and build things that actually work well. Currently an IT undergraduate at SLIIT, I've worked with React, Node.js, Java, and Python across several full-stack projects. I'm collaborative, curious, and always learning. Open to internships where I can bring value and level up my craft.
+            </div>
+
+            <div>
+                <div class="section-title-right">🎓 Education</div>
+                <div class="edu-item">
+                    <div class="edu-title">BSc (Hons) in Information Technology</div>
+                    <div class="edu-meta">Sri Lanka Institute of Information Technology (SLIIT) | 2024 – Present</div>
+                    <div class="edu-desc">Currently following IT degree with focus on software engineering, full-stack development and UI/UX. Current GPA: 3.6/4.0</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-title">GCE Advanced Level – Physical Science</div>
+                    <div class="edu-meta">Completed 2023 | Malwattawela Central College</div>
+                    <div class="edu-desc">Combined Mathematics (C) | Physics (C) | Chemistry (S)</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-title">GCE Ordinary Level</div>
+                    <div class="edu-meta">2018 | Buduruwagala Maha Vidyalaya</div>
+                    <div class="edu-desc">Successfully completed with distinction</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-title">Grade 5 Scholarship Examination</div>
+                    <div class="edu-meta">Passed with flying colors</div>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title-right">🚀 Featured Projects</div>
+
+                <div class="project-item">
+    <div class="project-header">
+        <span class="project-name">Centralized Blood Donation & Management System</span>
+        <span class="project-stack">React · Spring Boot · MySQL · Hibernate</span>
+    </div>
+    <ul class="project-desc">
+        <li>Full-stack blood donation platform connecting donors, hospitals, and admins with 6 modular backend components.</li>
+        <li>Built with Spring Boot (Java 21), Hibernate ORM, and React 18 + Vite for high-performance UI rendering.</li>
+        <li>Implemented RBAC with JWT authentication, real-time inventory tracking, and automated blood type matching.</li>
+        <li>Reduced emergency request response time by 40% through intelligent donor matching and real-time availability.</li>
+        <li>Configured automated database seeding with DataLoader for test users, inventory, and appointment data.</li>
+    </ul>
+</div>
+
+                <div class="project-item">
+    <div class="project-header">
+        <span class="project-name">LifeLine Mobile App</span>
+        <span class="project-stack">React Native · Node.js · Express · MongoDB</span>
+    </div>
+    <ul class="project-desc">
+        <li>Cross-platform mobile app connecting donors, hospitals, labs, and admins for centralized blood donation management.</li>
+        <li>Implemented lab file upload feature (PDFs + images) with multer middleware, file metadata tracking, and severity assessment.</li>
+        <li>Built RESTful APIs with JWT authentication, role-based access, and comprehensive activity logging.</li>
+        <li>Created 5 complete documentation guides (54KB total) covering deployment, commands, and feature implementation.</li>
+        <li>Deployed via Expo Go for real-time testing and EAS for production APK building (15-min build pipeline).</li>
+        <li>Enabled expanded inventory view with file downloads, technician attribution, and positive marker tracking.</li>
+    </ul>
+</div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">BURGIFY (UI/UX Concept)</span>
+                        <span class="project-stack">Figma · Mobile Design</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li>Playful burger ordering app concept with streamlined product discovery and checkout flow.</li>
+                        <li>Designed high-fidelity prototypes and component library.</li>
+                        <li>Featured in SLIIT Design Showcase 2024.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Web-Based Music Store</span>
+                        <span class="project-stack">Java · JSP · Servlets</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li>Multi-role platform for customers, artists, and admins to manage music and payments.</li>
+                        <li>Implemented secure payment gateway integration.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Save the Sea · Ocean Awareness</span>
+                        <span class="project-stack">Figma · UI/UX</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li>Eco-conscious mobile concept driving action for marine conservation through storytelling.</li>
+                        <li>Achieved 95% user satisfaction in usability testing.</li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <span class="project-name">Shoe App UI/UX Concept</span>
+                        <span class="project-stack">Mobile Commerce Design</span>
+                    </div>
+                    <ul class="project-desc">
+                        <li>Sneaker shopping experience with bold product presentation and focused purchase flow.</li>
+                        <li>Implemented smooth animations and micro-interactions.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="section-title-right">💡 Core Competencies</div>
+                <div class="value-prop-grid">
+                    <div class="value-item">⚛️ Modern Web Development</div>
+                    <div class="value-item">📱 Responsive UI Design</div>
+                    <div class="value-item">🎯 Component-Driven Architecture</div>
+                    <div class="value-item">🚀 Performance Optimization</div>
+                    <div class="value-item">🔍 User-Centered Design</div>
+                    <div class="value-item">💼 Internship-Ready Mindset</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-note">
+        🌙 Dark Theme CV | 📍 Based in Malabe, Sri Lanka | 📧 ynimneth@gmail.com | 📞 +94 76 615 4534 | Open for internships
+    </div>
+</div>
+</body>
+</html>

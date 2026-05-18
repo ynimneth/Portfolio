@@ -49,9 +49,8 @@ export default function RootLayout({
             __html: `
               (function () {
                 try {
-                  var savedTheme = localStorage.getItem("portfolio-theme");
-                  var systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
-                  document.documentElement.dataset.theme = savedTheme || systemTheme;
+                  document.documentElement.dataset.theme = "dark";
+                  localStorage.removeItem("portfolio-theme");
                   document.documentElement.dataset.cursor = localStorage.getItem("portfolio-cursor-enabled") === "false" ? "off" : "on";
                 } catch (error) {}
               })();

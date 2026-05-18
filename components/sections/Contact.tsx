@@ -201,8 +201,8 @@ export default function Contact() {
                 </a>
 
                 <a
-                  href="/cv/Yenula-Nimneth-CV.pdf"
-                  download
+                  href="/cv/Yenula-Nimneth-CV.html"
+                  download="Yenula-Nimneth-CV.html"
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 px-5 py-3 text-sm font-medium text-slate-200 transition hover:bg-white hover:text-slate-950"
                 >
                   <Download size={16} />

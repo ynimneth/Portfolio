@@ -214,8 +214,8 @@ export default function Hero() {
             </a>
 
             <a
-              href="/cv/Yenula-Nimneth-CV.pdf"
-              download
+              href="/cv/Yenula-Nimneth-CV.html"
+              download="Yenula-Nimneth-CV.html"
               className="group inline-flex items-center gap-2 rounded-full border border-white/10 px-6 py-3 font-medium text-slate-200 transition hover:bg-white hover:text-slate-950"
             >
               <Download size={16} className="transition group-hover:-translate-y-0.5" />

@@ -50,7 +50,7 @@ const projects = [
     tech: "Figma, UI/UX Design, Mobile App Design, Awareness Product Design",
     github: "",
     demo: "https://www.figma.com/proto/B3XJqq1MelAWTmumphE2Nh/Save_the_sea?node-id=5-3&p=f&t=f1SCVywexd8JZMPg-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=5%3A3&show-proto-sidebar=1",
-    image: "/projects/save-the-sea.svg",
+    image: "/projects/safesea.png",
   },
   {
     title: "Shoe App UI/UX Concept",

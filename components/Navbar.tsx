@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 
 const CursorToggle = dynamic(() => import("./CursorToggle"), { ssr: false });
-const ThemeToggle = dynamic(() => import("./ThemeToggle"), { ssr: false });
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -61,7 +60,6 @@ export default function Navbar() {
               ))}
             </div>
             <CursorToggle />
-            <ThemeToggle />
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full border border-cyan-300/25 bg-cyan-400/10 px-4 py-2 text-cyan-100 transition hover:bg-cyan-400/20"
@@ -92,7 +90,6 @@ export default function Navbar() {
             >
               <div className="flex flex-wrap gap-3">
                 <CursorToggle />
-                <ThemeToggle />
               </div>
               <div className="mt-4 flex flex-col gap-2">
                 {navLinks.map((link) => (
